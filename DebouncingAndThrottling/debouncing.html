@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Debouncing 防抖</title>
+</head>
+<body>
+  <h1>防抖</h1>
+  <p>防止频繁触发函数, 超过间隔时间才会执行函数, 否则不执行</p>
+  <p>防抖适合防止频繁的点击, 不适合如onscroll事件(会导致用户滑动一直不触发滑动绑定的事件)</p>
+
+  <script>
+    window.onload = function() {
+      var btn1 = document.getElementById('btn1');
+      var btn2 = document.getElementById('btn2');
+      var debouncing = document.getElementById('debouncing');
+      var noDebouncing = document.getElementById('noDebouncing');
+      var num1 = 0;
+      var num2 = 0;
+
+      var timer = null;
+
+      btn1.addEventListener('click', function() {
+        clearTimeout(timer);
+
+        timer = setTimeout(function() {
+          debouncing.innerHTML = ++num1;
+        }, 1000);
+      });
+      btn2.addEventListener('click', function() {
+        noDebouncing.innerHTML = ++num2;
+      });
+    }
+  </script>
+
+  <button id="btn1">防抖点击</button>
+  <button id="btn2">未防抖点击</button>
+
+  <p>防抖点击次数: <span id="debouncing">0</span></p>
+  <p>未防抖点击次数: <span id="noDebouncing">0</span></p>
+
+</body>
+</html>

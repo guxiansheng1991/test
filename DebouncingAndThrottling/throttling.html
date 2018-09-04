@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Throttling 节流</title>
+</head>
+<body>
+  <h1>节流</h1>
+  <p>防止频繁触发函数, 在间隔时间节点上必调用函数</p>
+  <p>节流适合例如onscroll事件, 但是不适合如下例子中的点击事件, 点击事件用防抖更合适</p>
+
+  <script>
+    window.onload = function() {
+      var btn1 = document.getElementById('btn1');
+      var btn2 = document.getElementById('btn2');
+      var throttling = document.getElementById('throttling');
+      var noThrottling = document.getElementById('noThrottling');
+      var num1 = 0;
+      var num2 = 0;
+
+      var now1  = Date.now();
+
+      btn1.addEventListener('click', function() {
+        var now2  = Date.now();
+        var tmp = now2 - now1;
+        now1 = now2;
+
+        if(tmp >= 1000) {
+          throttling.innerHTML = ++num1;
+        }
+      });
+      btn2.addEventListener('click', function() {
+        noThrottling.innerHTML = ++num2;
+      });
+    }
+  </script>
+
+  <button id="btn1">节流点击</button>
+  <button id="btn2">未节流点击</button>
+
+  <p>防抖点击次数: <span id="throttling">0</span></p>
+  <p>未防抖点击次数: <span id="noThrottling">0</span></p>
+</body>
+</html>
