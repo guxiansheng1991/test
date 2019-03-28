@@ -1,0 +1,9 @@
+umd是AMD和CommonJS的结合
+策略是:
+先判断是否是Node.js环境(node支持的exports是否存在), 在判断是否是AMD环境
+
+(function (global, factory) {
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+    typeof define === 'function' && define.amd ? define(factory) :
+    (global.libName = factory());
+}(this, (function () { 'use strict';})));

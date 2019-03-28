@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.8/vue.js"></script>
+    <style>
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+      .black {
+        color: black;
+      }
+      .blue {
+        color: blue;
+      }
+      .pink {
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1 :class="styleFlag">Vue原理</h1>
+      <button id="change" @click="showMethods">切换</button>
+    </div>
+  </body>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        flag: 1
+      },
+      computed: {
+        styleFlag: function () {
+          let res = '';
+          switch (this.flag) {
+            case 1:
+              res = 'red';
+              break;
+            case 2:
+              res = 'green';
+              break;
+            case 3:
+              res = 'blue';
+              break;
+            case 4:
+              res = 'pink';
+              break;
+            default:
+              res = 'black';
+          }
+          return res;
+        }
+      },
+      methods: {
+        showMethods () {
+          this.flag = this.flag % 5 + 1;
+        }
+      }
+    });
+  </script>
+</html>

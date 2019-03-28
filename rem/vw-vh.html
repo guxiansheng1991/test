@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vw, vh</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    /* .box {
+      width: 50vw;
+      height: 100vh;
+      background-color: #ccc;
+      border: 1px solid #000000;
+    } */
+    .wrapper {
+      border: 1px solid #ccc;
+    }
+    .wrapper .float-left {
+      width: 100px;
+      height: 100px;
+      float: left;
+    }
+    .clear::after {
+      content: '';
+      clear: both;
+      display: table;
+      visibility:hidden; 
+      width: 0;
+    height: 0;
+    }
+    .clear {
+      zoom: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- <div class="box"></div> -->
+  <div class="wrapper">
+    <div class="float-left clear"></div>
+    <p>h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发
+        h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发
+        h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发
+        h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发h是否会尽快撒发开发
+    </p>
+  </div>
+</body>
+</html>

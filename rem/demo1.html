@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        padding: 0px;
+        margin: 0px;
+      }
+      .color-ccc {
+        background-color: #ccc;
+      }
+      .box1 {
+        width: 0.8293rem;
+        height: 1rem;
+        border: 1px solid #000000;
+        box-sizing: border-box;
+      }
+    </style>
+    <script>
+      window.addEventListener('DOMContentLoaded', function() {
+        var w = window.innerWidth;
+        document.documentElement.style.fontSize = w + 'px';
+      });
+    </script>
+  </head>
+  <body>
+    <div class="box1 color-ccc"></div>
+  </body>
+</html>

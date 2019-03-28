@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSS3动画</title>
+    <style>
+      @keyframes demo1 {
+        0% {
+          left: 0px;
+          top: 10px;
+        }
+        20% {
+          left: 0px;
+          top: 10px;
+        }
+        40% {
+          left: 10px;
+          top: 30px;
+        }
+        60% {
+          left: 30px;
+          top: 50px;
+        }
+        80% {
+          left: 50px;
+          top: 70px;
+        }
+        100% {
+          left: 70px;
+          top: 100px;
+        }
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background: #000000;
+        border-radius: 50%;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        animation: demo1 1s linear 1s infinite forwards normal;
+        animation: name duration timing-function delay iteration-count direction fill-mode;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>
