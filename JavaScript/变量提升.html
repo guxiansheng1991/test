@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>变量提升</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // (function () {
+  //   var a = b = 5;
+  // })();
+  // console.log(b);
+
+  // function test() {
+  //   // var a = 5;
+  //   // var b = 5;
+  //   // var a = b = 5;
+  //   a = 5;
+  //   b = 5;
+  // };
+  // test();
+  // console.log(a);
+  // console.log(b);
+
+  (function () {
+    var a = b = 5;
+  })();
+  console.log(b);
+  console.log('is defined? ', (typeof a !== undefined));
+  console.log('is defined? ', (typeof b !== undefined));
+
+</script>
+</html>

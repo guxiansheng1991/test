@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue,vif vshow</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.8/vue.js"></script>
+    <style>
+      #test1 {
+        display: none;
+      }
+      #test2 {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1 v-if="show">Vue原理</h1>
+      <button id="change" @click="showMethods">隐藏/显示</button>
+
+      html display visible
+      <h1 id="test1">使用display</h1>
+      <h1 id="test2">使用visible</h1>
+    </div>
+  </body>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        show: true
+      },
+      methods: {
+        showMethods () {
+          this.show = !this.show;
+        }
+      }
+    });
+  </script>
+</html>

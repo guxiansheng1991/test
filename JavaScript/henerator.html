@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Generator函数</title>
+  </head>
+  <body></body>
+  <script>
+    let rules = {
+      str: {
+        type: 'String',
+        value: '123',
+        require: true,
+        error: 'str错误',
+        customFunc: null
+      },
+      bool: {
+        type: 'Boolean',
+        value: true,
+        require: true,
+        error: 'bool错误',
+        customFunc: null
+      },
+      num: {
+        type: 'Number',
+        value: 1,
+        require: true,
+        error: 'number错误',
+        customFunc: null
+      },
+      obj: {
+        type: 'Object',
+        value: {
+          demo1: {
+            type: 'String',
+            value: '哈哈哈',
+            error: 'demo1 错误',
+            require: true,
+            customFunc: null
+          }
+        },
+        error: '对象错误',
+        require: true,
+        customFunc: null
+      },
+      arr: {
+        type: 'Array',
+        value: [1, 2, 3, 4],
+        error: 'arr错误',
+        require: true,
+        customFunc: null
+      }
+    };
+
+    let params = {
+      str: '123',
+      bool: true,
+      num: 1,
+      obj: {
+        demo1: '哈哈哈'
+      },
+      arr: [1, 2, 3, 4]
+    };
+    let params2 = {
+      str: '123',
+      bool: true,
+      num: 1,
+      obj: {
+        demo1: '哈哈哈'
+      },
+      arr: []
+    };
+    let params3 = {
+      str: '123',
+      bool: true,
+      num: 1,
+      arr: [1, 2, 3, 4]
+    };
+
+    // 返回一个新的对象,可以用来提交数据
+    function verify(params, rules) {
+      let error = '';
+      for (const key in rules) {
+        if (rules.hasOwnProperty(key)) {
+          const element = rules[key];
+          const paramsItem = params[key];
+          if ((element.type === 'String' && element.require) && paramsItem === '' && paramsItem === undefined) {
+            error = element.error;
+            return error;
+          }
+          if ((element.type === 'Boolean' && element.require) && paramsItem === undefined) {
+            error = element.error;
+            return error;
+          }
+          if ((element.type === 'Number' && element.require) && paramsItem === undefined) {
+            error = element.error;
+            return error;
+          }
+          if ((element.type === 'Object' && element.require)) {
+            if (paramsItem === undefined || JSON.stringify(paramsItem) === '{}') {
+              error = element.error;
+              return error;
+            } else {
+              verify(paramsItem, element);
+            }
+          }
+          if ((element.type === 'Array' && element.require) && (paramsItem === undefined || paramsItem.length <= 0)) {
+            error = element.error;
+            return error;
+          }
+        }
+      }
+    }
+
+    // let res = verify(params, rules);
+    // let res = verify(params2, rules);
+    let res = verify(params3, rules);
+    console.log(res);
+    if (res) {
+      alert(res);
+    } else {
+      alert('通过');
+    }
+  </script>
+</html>

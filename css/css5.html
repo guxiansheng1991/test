@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css3图片轮播</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    @keyframes transferImages {
+      0% {
+        background-image: url('http://f.hiphotos.baidu.com/zhidao/pic/item/9a504fc2d5628535e0e9987a93ef76c6a7ef635b.jpg')
+      }
+      25% {
+        background-image: url('http://img3.duitang.com/uploads/item/201505/27/20150527161409_nVMZk.jpeg')
+      }
+      50% {
+        background-image: url('http://b-ssl.duitang.com/uploads/item/201602/14/20160214185532_ExRtJ.jpeg')
+      }
+      75% {
+        background-image: url('http://pic.58pic.com/58pic/11/09/64/39i58PICmgE.jpg')
+      }
+      100% {
+        background-image: url('http://img.qqzhi.com/uploads/2019-02-27/165544333.jpg')
+      }
+    }
+    .app {
+      width: 100%;
+      height: 100%;
+      background-size: 100% 100%;
+      animation: 20s transferImages infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="app"></div>
+</body>
+</html>
