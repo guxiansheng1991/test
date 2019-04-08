@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>forin和forof的区别</title>
+</head>
+<body>
+  
+</body>
+<script>
+  Object.prototype.sayHello = function(){
+    console.log('Hello');
+}
+var myObject = {
+    name:'zhangsan',
+    age:10
+}
+
+for(let key of myObject){
+    console.log(key);
+}
+</script>
+</html>

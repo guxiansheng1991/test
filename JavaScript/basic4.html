@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>apply call</title>
+</head>
+<body>
+  
+</body>
+<script>
+  function test () {
+    console.log(this);
+  }
+  test.apply(window);       // Window
+  test.apply(null);         // Window
+  test.apply(undefined);    // Window
+  test.apply();             // Window
+  test.call(window);        // Window
+  test.call(null);          // Window
+  test.call(undefined);     // Window
+  test.call();              // Window
+</script>
+</html>
