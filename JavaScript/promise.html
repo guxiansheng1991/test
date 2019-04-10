@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>promise</title>
+</head>
+<body>
+  
+</body>
+<script>
+  new Promise((resolve, reject) => {
+    console.log('A');
+    setTimeout(() => {
+      resolve('B');
+    });
+  }).then(v => {
+    const ret = `${v}`;
+    setTimeout(() => {
+      console.log(ret);
+    });
+    throw ret;
+  }, v => {
+    const ret = `${v}`;
+    setTimeout(() => {
+      console.log(ret);
+    });
+    return ret;
+  }).then(v => {
+    console.log(v + '1');
+  }, v => {
+    console.log(v + '2');
+  })
+
+  setTimeout(() => {
+    console.log('D'); 
+  });
+
+  console.log('C');
+</script>
+</html>

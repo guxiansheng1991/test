@@ -8,7 +8,9 @@
   </head>
   <body></body>
   <script>
+    /*
     function* helloWorldGenerator() {
+      console.log(123);
       yield 'hello';
       yield 'world';
       return 'ending';
@@ -16,8 +18,75 @@
     let hw = helloWorldGenerator();
     console.log(hw.next());
     console.log(hw.next());
-    console.log(hw.next());
-    console.log(hw.next());
+    // console.log(hw.next());
+    // console.log(hw.next());
+    */
 
+    /*
+    // 用generator实现一个async
+    function runGenerator (g) {
+      var it = g();
+      var ret;
+      (function iterate(val) {
+        console.log(`${val},1`);
+        ret = it.next(val);
+        if (!ret.done) {
+          if ("then" in ret.value) {
+            ret.value.then(iterate);
+          } else {
+            setTimeout(function () {
+              iterate(ret.value);
+            }, 0);
+          }
+        }
+      })();
+    }
+
+    runGenerator(function* () {
+      var result1 = yield new Promise(function (res, rej) {
+        setTimeout(function () {
+          console.log('before ok1');
+          res('ok,a');
+        }, 1000);
+      });
+      var result2 = yield new Promise(function (res, rej) {
+        setTimeout(function () {
+          console.log('before ok2');
+          res('ok,b');
+        }, 1000);
+      });
+      console.log(123);
+    });
+    */
+
+    function runGenerator (gen) {
+      var g = gen();
+      var ret;
+      (function iterator(val) {
+        ret = g.next(val);
+        if (!ret.done) {
+          if ('then' in ret.value) {
+            ret.value.then(iterator);
+          } else {
+            iterator(ret.value);
+          }
+        }
+      })();
+    }
+    runGenerator(function* () {
+      yield new Promise(function(res, rej) {
+        setTimeout(function () {
+          console.log('ok1');
+          res('ok1...');
+        }, 1000);
+      });
+      yield new Promise(function(res, rej) {
+        setTimeout(function () {
+          console.log('ok2');
+          res('ok1...');
+        }, 2000);
+      });
+      console.log(123);
+    });
   </script>
 </html>

@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>forin和forof的区别</title>
-</head>
-<body>
-  
-</body>
-<script>
-  Object.prototype.sayHello = function(){
-    console.log('Hello');
-}
-var myObject = {
-    name:'zhangsan',
-    age:10
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>forin和forof的区别</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     * 1. 在形式上: forin中key是属性名, forof是值
+     * 2. forinhi遍历对象的属性,包含原型上的属性; 但是forof不会遍历原型上的属性,也不能循环普通的对象
+     * 3. forin不能遍历map和set,forof是可以的
+     * */
+    Object.prototype.sayHello = function() {
+      console.log('Hello');
+    };
+    var myObject = {
+      name: 'zhangsan',
+      age: 10
+    };
 
-for(let key of myObject){
-    console.log(key);
-}
-</script>
+    let map = new Map();
+    map.set('a', 123);
+    map.set('b', 456);
+
+    let set = new Set([1, 2, 3, 4]);
+
+    // for (let key of myObject) {
+    //   console.log(key);
+    // }
+
+    for (let key of map) {
+      console.log(key);
+    }
+    for (let key of set) {
+      console.log(key);
+    }
+
+    for (let key in map) {
+      console.log(key);
+    }
+    for (let key in set) {
+      console.log(key);
+    }
+  </script>
 </html>
