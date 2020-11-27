@@ -1,0 +1,15 @@
+<!--shareComponents/body/body.wxml-->
+<view class="body">
+  <!-- list -->
+  <view class="list">
+    <view class="item" wx:for="{{myList}}" wx:key="index">
+      <view class="left">
+        <checkbox value="{{index}}" checked="{{item.finished}}" bindtap="checkedMethod" data-item="{{item}}"/>
+      </view>
+      <view class="right">
+        <text wx:if="{{!item.edit}}" bindtap="showItem" data-index="{{index}}" data-item="{{item}}" class="text {{item.finished ? 'finish':''}}">{{item.value}}</text>
+        <input wx:else type="text" bindblur="editItem" data-index="{{index}}" data-item="{{item}}" value="{{item.value}}"  class="input" placeholder="请输入待办事项" />
+      </view>
+    </view>
+  </view>
+</view>

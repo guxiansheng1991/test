@@ -1,0 +1,13 @@
+<button bindtap="updateName">修改变量name</button>
+<view>
+  <text>name: {{name}}</text>
+</view>
+
+<button bindtap="updateList">修改变量list</button>
+<view>
+  <view wx:for="{{list}}" wx:key="index">k1: {{item.k1}}</view>
+</view>
+
+<button bindtap="updateObj">修改变量obj</button>
+<text>k1: {{obj.k1}}</text>,
+<text>k2: {{obj.k2}}</text>

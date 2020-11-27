@@ -1,0 +1,23 @@
+<!--pages/share/share.wxml-->
+
+<view>
+  <view><text class="p1">二.自定义组件</text></view>
+  <view><text class="p2">1.自定义组件基本用法</text></view>
+  <share1></share1>
+  <view class="p-end"></view>
+
+
+  <view><text class="p2">2.组件通信</text></view>
+  <communication class="communication" str="{{str}}" arr="{{arr}}" bind:myevent="onMyEvent"></communication>
+  <button size="mini" bindtap="parentCallChild">父组件获取子组件后直接调用子组件内部</button>
+  <view class="p-end"></view>
+
+  <view><text class="p2">3.数据监听器</text></view>
+  <myObservers></myObservers>
+  <view class="p-end"></view>
+
+  <view><text class="p2">4.组件代码抽离</text></view>
+  <text>https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/behaviors.html</text>
+  <view class="p-end"></view>
+
+</view>

@@ -1,0 +1,5 @@
+<!--shareComponents/header/header.wxml-->
+<view class="header">
+  <input class="input" model:value="{{text}}" auto-focus placeholder="请输入待办事项"/>
+  <view class="add" size="mini" bindtap="add">添加</view>
+</view>

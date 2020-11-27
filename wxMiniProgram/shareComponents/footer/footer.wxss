@@ -1,0 +1,23 @@
+/* shareComponents/footer/footer.wxss */
+.footer {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .right {
+  width: 80rpx;
+  height: 60rpx;
+  color: #cccccc;
+  border: 1rpx solid #cccccc;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .active {
+  color: #000000;
+  border: 1rpx solid #000000;
+}

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "TODOLIST",
+  "usingComponents": {
+    "header": "/shareComponents/header/header",
+    "body": "/shareComponents/body/body",
+    "footer": "/shareComponents/footer/footer"
+  }
+}

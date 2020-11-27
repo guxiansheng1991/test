@@ -1,0 +1,9 @@
+<!--shareComponents/footer/footer.wxml-->
+<view class="footer">
+  <view class="left">
+    <checkbox checked="{{isCheckAll}}" bindtap="checkAllMethod"/>全选
+  </view>
+  <view class="right {{showBtn ? 'active':''}}" bindtap="delete">
+    <text>删除</text>
+  </view>
+</view>

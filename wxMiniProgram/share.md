@@ -1,4 +1,5 @@
 # 微信小程序组件
+> share.md同级文档中,pages和shareComponents内的文件不可执行,仅仅是代码demo
 - 一. 原生组件
 - 二. 自定义组件
     - 1. 基本使用

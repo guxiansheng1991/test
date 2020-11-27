@@ -1,0 +1,17 @@
+<view class="todolist">
+  <!-- header -->
+  <view class="box header">
+    <header bind:add="myAdd"></header>
+  </view>
+
+  <!-- body -->
+  <view class="box body" wx:if="{{list.length > 0}}">
+    <body list="{{list}}" bind:edit="myEdit" bind:finish="myFinish"></body>
+  </view>
+
+  <!-- footer -->
+  <view class="box footer" wx:if="{{list.length > 0}}">
+    <footer show-delete-btn="{{showDeleteBtn}}" bind:checkall="myCheckAll" bind:delete="myDelete"></footer>
+  </view>
+
+</view>

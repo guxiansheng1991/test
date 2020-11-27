@@ -1,0 +1,4 @@
+/* sahreComponents/share1/share1.wxss */
+.share1 {
+  color: red;
+}

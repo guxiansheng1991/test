@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "share1": "/shareComponents/share1/share1",
+    "communication": "/shareComponents/communication/communication",
+    "myObservers": "/shareComponents/myObservers/myObservers"
+  }
+}

@@ -1,0 +1,10 @@
+/* pages/todolist/todolist.wxss */
+.todolist {
+  width: 100%;
+  height: auto;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.box {
+  margin-bottom: 20rpx;
+}

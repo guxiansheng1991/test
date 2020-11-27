@@ -1,0 +1,6 @@
+<text>properties (str): {{str}}</text>
+<view>
+  <text>properties (arr): </text>
+  <text wx:for="{{arr}}" wx:key="index">{{item.username}},</text>
+  <button size="mini" bindtap="outEvent">传出数据</button>
+</view>
