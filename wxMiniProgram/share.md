@@ -16,6 +16,8 @@
 ### 1. 基本使用
 - (1) 组件也有4个文件, wxml,js,json,wxss
 - (2) 组件使用Component构造器初始化
+- (3) 组件的生命周期
+- (4) 组件的插槽
 ```
 // 组件基础代码如下:
 Component({
@@ -40,6 +42,61 @@ Component({
 
   }
 })
+```
+```
+// 组件生命周期
+Component({
+  lifetimes: {
+    attached: function() {
+      // 在组件实例进入页面节点树时执行
+    },
+    detached: function() {
+      // 在组件实例被从页面节点树移除时执行
+    },
+  },
+  // 以下是旧式的定义方式，可以保持对 <2.2.3 版本基础库的兼容
+  attached: function() {
+    // 在组件实例进入页面节点树时执行
+  },
+  detached: function() {
+    // 在组件实例被从页面节点树移除时执行
+  },
+  // 页面生命周期
+  pageLifetimes: {
+    show: function() {
+      // 页面被展示
+    },
+    hide: function() {
+      // 页面被隐藏
+    },
+    resize: function(size) {
+      // 页面尺寸变化
+    }
+  }
+})
+```
+插槽
+```
+子组件代码
+<view>
+  <text class="share1">我是share1</text>
+  <slot name="slot1"></slot>
+  <slot name="slot2"></slot>
+</view>
+
+// sahreComponents/share1/share1.js
+Component({
+  options: {
+    multipleSlots: true
+  },
+  ...})
+
+
+父组件代码
+<share1>
+    <view slot="slot1">我是slot1,我是slot1,我是slot1,我是slot1</view>
+    <view slot="slot2">我是slot2,我是slot2,我是slot2,我是slot2,</view>
+  </share1>
 
 ```
 ### 2. 组件通信
