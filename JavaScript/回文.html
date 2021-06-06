@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回文</title>
+</head>
+<body>
+    <p>4.回文是指正反读都一样的词语。
+        提供一个非空字符串s，你可以删除最多一个字母。判断是否可以把它变成回文字符串。
+        例子 1: Input: "aba"       Output: True
+        例子 2: Input: "abca"       Output: True    注释: 删除 'c'.
+         
+        请填写以下TODO部分答题，如需其它方法，可自行编写。</p>
+</body>
+<script>
+    function plalindrome(str,countNum) {
+        let i = 0;
+        let j = str.length - 1;
+        let count = countNum;
+        while(i < j) {
+            if (str[i] == str[j]) {
+                i++;
+                j--;
+            } else {
+                if (count == 0){
+                    return (plalindrome(str.substring(i,j),1) || plalindrome(str.substring(i+1,j+1),1));
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    console.log(plalindrome('abdcba',0));
+</script>
+</html>

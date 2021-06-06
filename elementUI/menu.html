@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <script src="https://unpkg.com/vue@2.6.13/dist/vue.js"></script>
-    <script src="https://unpkg.com/element-ui@2.15.2/lib/index.js"></script>
+    <script async src="https://unpkg.com/vue@2.6.13/dist/vue.js"></script>
+    <script async src="https://unpkg.com/element-ui@2.15.2/lib/index.js"></script>
     <div id="app">
         <el-row class="tac">
             <el-col :span="12">
@@ -54,7 +54,8 @@
         </el-row>
     </div>
 </body>
-<script>
+<script src="./main.js"></script>
+<!-- <script>
     window.onload = function () {
         var Main = {
             methods: {
@@ -69,6 +70,6 @@
         var Ctor = Vue.extend(Main)
         new Ctor().$mount('#app')
     }
-</script>
+</script> -->
 
 </html>
